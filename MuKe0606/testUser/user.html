@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Validation 插件</title>
+</head>
+<body>
+    <form id="demoForm">
+       <fieldset>
+           <legend>用户登录</legend>
+           <p>
+               <label for="username">用户名</label>
+               <input type="text" id="username" name="username"/>
+           </p>
+
+           <p>
+               <label for="password">密码</label>
+               <input type="password" id="password" name="password">
+           </p>
+           <p>
+               <input type="submit" value="登录">
+           </p>
+       </fieldset>
+    </form>
+<script src="static/js/jquery-3.2.1.js"></script>
+<script src="static/js/jquery.validate.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#demoForm").validate({
+            rules:{
+                username:{
+                    required:true,
+                    minlength:2,
+                    maxlength:10
+                },
+                password:{
+                    required:true,
+                    minlength:2,
+                    maxlength:16
+                }
+            },
+            message:{
+                username:{
+                    required:"必须填写用户名",
+                    minlength:"用户名最小为2位",
+                    maxlength:"用户名最大为10位"
+                },
+                password:{
+                    required:"必须填写密码",
+                    minlength:"密码最小为2位",
+                    maxlength:"密码最大为16位"
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
